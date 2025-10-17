@@ -1,0 +1,28 @@
+.login-page{
+    display: flex;
+    justify-content: center;
+    background-color: #f0f2f5;
+    margin-left: 400px;
+    border-radius: 20px;
+}
+h3{
+    text-align: center;
+    color: black;
+}
+form {
+    background: white;
+    border-radius: 8px;
+    margin: 34px;
+    width: 300px;
+    text-align: center;
+}
+input{
+    background-color: whitesmoke;
+    outline: none;
+    border: none;
+    border-bottom: solid;
+    color: black;
+}
+button{
+    width: 180px;
+}
