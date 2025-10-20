@@ -1,67 +1,56 @@
 import React, { useState } from "react";
-import "./Login.css";
-import axios from "axios";
+import { Link } from "react-router-dom";
+import "./AuthForm.css";
 
-function Login() {
-  const [user, setUser] = useState({
-    username: "",
-    email: "",
-    password: "",
-  });
+const Login = () => {
+  const [formData, setFormData] = useState({ username: "", password: "" });
 
-  // update input values
   const handleChange = (e) => {
-    setUser({ ...user, [e.target.name]: e.target.value });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // send data to backend
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    try {
-      await axios.post("http://localhost:5000/register", user);
-      alert("User inserted successfully!");
-      setUser({ username: "", email: "", password: "" }); // clear form
-    } catch (error) {
-      console.error(error);
-      alert("Failed to insert user!");
-    }
+    console.log("Logging in:", formData);
   };
 
   return (
-    <div  class="login-page">
-      
-      <form onSubmit={handleSubmit}>
-        <h3>Creact Account</h3>
-        <input
-          type="text"
-          name="username"
-          value={user.username}
-          onChange={handleChange}
-          placeholder="User Name"
-          required
-        /><br /><br />
-        <input
-          type="email"
-          name="email"
-          value={user.email}
-          onChange={handleChange}
-          placeholder="Email"
-          required
-        /><br /><br />
+    <div className="auth-container">
+      <div className="auth-box">
+        <h2>Login</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="input-group">
+            <label>Username</label>
+            <input
+              type="text"
+              name="username"
+              value={formData.username}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-        <input
-          type="password"
-          name="password"
-          value={user.password}
-          onChange={handleChange}
-          placeholder="Password"
-          required
-        /><br /><br />
+          <div className="input-group">
+            <label>Password</label>
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-        <button type="submit">Submit</button>
-      </form>
+          <button type="submit" className="btn">Login</button>
+        </form>
+
+        <p className="toggle-text">
+          Don’t have an account?
+          <Link to="/signup"> Sign up</Link>
+        </p>
+      </div>
     </div>
   );
-}
+};
 
 export default Login;

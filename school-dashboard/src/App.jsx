@@ -1,31 +1,15 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Login from "./components/Login";
-import Dashboard from "./components/Dashboard";
+import Signup from "./components/Signup";
 
 function App() {
-  // Simple authentication state
-  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
-
   return (
-    <Router>
-      <Routes>
-        {/* Login route */}
-        <Route
-          path="/login"
-          element={<Login setIsLoggedIn={setIsLoggedIn} />}
-        />
-
-        {/* Dashboard route */}
-        <Route
-          path="/dashboard"
-          element={isLoggedIn ? <Dashboard /> : <Navigate to="/login" />}
-        />
-
-        {/* Default route */}
-        <Route path="*" element={<Navigate to="/login" />} />
-      </Routes>
-    </Router>
+    <Routes>
+      <Route path="/" element={<Navigate to="/login" />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
+    </Routes>
   );
 }
 
