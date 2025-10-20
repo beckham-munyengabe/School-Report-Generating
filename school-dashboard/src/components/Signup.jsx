@@ -33,7 +33,9 @@ function Signup() {
     <div className="auth-container">
       <div className="auth-box">
       <h2>Create an Account</h2>
-      <form onSubmit={handleSubmit} className="input-group">
+      <form onSubmit={handleSubmit}>
+        <div className="input-group">
+       
         <input 
           type="text"
           name="username"
@@ -42,6 +44,9 @@ function Signup() {
           onChange={handleChange}
           required
         />
+        </div>
+        <div className="input-group">
+           
         <input
           type="email"
           name="email"
@@ -50,6 +55,9 @@ function Signup() {
           onChange={handleChange}
           required
         />
+        </div>
+        <div className="input-group">
+          
         <input
           type="password"
           name="password"
@@ -59,6 +67,7 @@ function Signup() {
           required
           autoComplete="off"
         />
+        </div>
         <button type="submit" className="btn">Sign Up</button>
       </form>
       <p>
