@@ -70,7 +70,7 @@ function Signup() {
         </div>
         <button type="submit" className="btn">Sign Up</button>
       </form>
-      <p>
+      <p className="toggle-text">
         Already have an account? <Link to="/login">Login</Link>
       </p>
       </div>
