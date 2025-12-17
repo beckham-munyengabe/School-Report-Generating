@@ -37,5 +37,19 @@ app.post("/signup", (req, res) => {
   });
 });
 
+//select all option
+
+app.get("/students", (req, res) => {
+  const sql = "SELECT * FROM users";
+  db.query(sql, (err, results)=>{
+    if(err){
+      console.error(err);
+      res.status(500).json({message: "Database error"});
+    }else{
+      res.status(200).json(results);
+    }
+  })
+})
+
 // Start server
 app.listen(5000, () => console.log("🚀 Server running on port 5000"));

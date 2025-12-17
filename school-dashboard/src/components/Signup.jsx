@@ -21,8 +21,8 @@ function Signup() {
     e.preventDefault();
     try {
       await axios.post("http://localhost:5000/signup", formData);
-      alert("Signup successful!");
-      navigate("/login");
+      alert("Signup successful, Now Login!");
+      navigate("/students");
     } catch (err) {
       console.error(err);
       alert("Signup failed");
